@@ -6,6 +6,10 @@
   margin: 10px;
 }
 
+body {
+  text-align: center;
+}
+
 .pixel {
   height: 41px;
   width: 41px;
@@ -15,4 +19,10 @@
 
 table {
   border-collapse: collapse;
+  margin: auto;
+}
+
+#clear-board {
+  padding: 10px;
+  margin: 10px;
 }
