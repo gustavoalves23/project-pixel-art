@@ -7,8 +7,7 @@ function randomColor() {
   const red = parseInt(Math.random() * 255, 10);
   const green = parseInt(Math.random() * 255, 10);
   const blue = parseInt(Math.random() * 255, 10);
-  const bright = parseInt((Math.random() * 100), 10);
-  return (`rgba(${red},${green},${blue},${bright})`);
+  return (`rgb(${red},${green},${blue})`);
 }
 
 function createColorPallete() {
