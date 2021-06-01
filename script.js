@@ -1,10 +1,20 @@
 let color = 'black';
+let button = document.getElementById('clear-board');
+let changeSizeButton = document.getElementById("generate-board");
+
+function randomColor(){
+    let red = parseInt(Math.random() * 255);
+    let green = parseInt(Math.random() * 255);
+    let blue = parseInt(Math.random() * 255);
+    let bright = parseInt(Math.random() * 100);
+    return(`rgba(${red},${green},${blue},${bright})`);
+    }
 
 function createColorPallete() {
   let pallet = document.getElementById('color-palette');
   for (let index = 0; index < 4; index += 1) {
     let colorDiv = document.createElement('div');
-    let eachColor = ['black', 'red', 'blue', 'green'];
+    let eachColor = ['black', randomColor(), randomColor(), randomColor()];
     if (eachColor[index] === 'black') {
       colorDiv.className = 'color selected';
     } else {
@@ -72,3 +82,35 @@ function pixelSelectorButtons() {
 }
 
 pixelSelectorButtons();
+
+function BoardCleaner() {
+  let pixelsToClear = document.getElementsByClassName('pixel');
+  for (let index = 0; index < pixelsToClear.length; index += 1) {
+    pixelsToClear[index].style.backgroundColor = 'white';
+  }
+}
+
+button.addEventListener('click', BoardCleaner);
+
+function tableSizeInput (inputTextSize){
+    if (inputTextSize == ''){
+        alert('Board inválido!');
+    }
+    if (inputTextSize < 5){
+        return(5);
+    }
+    if (inputTextSize > 50){
+        return(50);
+    }
+    return(inputTextSize);
+    }
+    
+    function clearAndGenerate() {
+        let inputTextSize = document.getElementById("board-size").value;
+        let table =  document.getElementById("pixel-board");
+        table.innerHTML = "";
+        tableMaker(tableSizeInput(inputTextSize));
+        pixelSelectorButtons();
+    }
+    
+    changeSizeButton.addEventListener("click", clearAndGenerate);
