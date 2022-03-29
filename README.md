@@ -9,6 +9,7 @@
 - JavaScript
 - HTML
 - CSS
+- Eslint
 
 ### App em produção:
 http://project-pixel-art.vercel.app
